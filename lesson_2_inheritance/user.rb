@@ -12,9 +12,9 @@ end
 
 class User
   def initialize(username, password, ip_address)
-   @username = username
-   @password = password
-   @ip_address = ip_address
+    @username = username
+    @password = password
+    @ip_address = ip_address
   end
 
   def change_password=(password)
