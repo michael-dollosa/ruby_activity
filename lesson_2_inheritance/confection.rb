@@ -31,3 +31,6 @@ end
 
 cup_cake = Cupcake.new()
 cup_cake.prepare
+
+banana_cake = BananaCake.new()
+banana_cake.prepare
