@@ -2,7 +2,9 @@
 CREATE TABLE classrooms (
   id INTEGER PRIMARY KEY,
   student_id INTEGER NOT NULL,
-  section VARCHAR (3) NOT NULL
+  section VARCHAR (3) NOT NULL,
+  --commented out constraint (for practice purposes) since some student_id in this exercise is not present in students table (due to hardcoding insert data). 
+  --CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES students(id)
 );
 
 --populate table
