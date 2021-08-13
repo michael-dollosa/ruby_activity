@@ -24,7 +24,7 @@ from actor inner join film_actor
 
 select actor.first_name||' '||actor.last_name as actor_full_name,
   film.title as film_title,
-  category.name as category
+  category.name as category_name
 from actor inner join film_actor
   on actor.actor_id = film_actor.actor_id
   inner join film
