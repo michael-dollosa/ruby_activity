@@ -69,28 +69,6 @@ where rank = 1;
 -- 6. Rank the top 5 actors per country (determined by the number rentals) sort by most popular to least popular
 --   Column => country, actor_full_name, actor_rank, rent_count
 
--- with partitioned_table as (
---   select  country.country as country,
---     actor.first_name||' '||actor.last_name as actor_full_name,
---     rank() over (partition by country.country order by count(*) desc) actor_rank,
---     count(*) as rent_count
---   from inventory
---     inner join film_actor
---     on film_actor.film_id = inventory.film_id
---     inner join actor
---     on actor.actor_id = film_actor.actor_id
---     inner join store
---     on inventory.store_id = store.store_id
---     inner join address
---     on store.address_id = address.address_id
---     inner join city
---     on address.city_id = city.city_id
---     inner join country
---     on city.country_id = country.country_id
---     group by actor_full_name, country.country
---     order by country.country
--- )
-
 with partitioned_table as (
   select  country.country as country,
     actor.first_name||' '||actor.last_name as actor_full_name,
