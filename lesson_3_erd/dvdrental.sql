@@ -46,7 +46,7 @@ group by staff_list.name;
 
 with partitioned_film_table as (
   select inventory.store_id as store_id,
-  count(category.name) as count,
+  count(category.name) as film_count,
   category.name as category_name,
   rank() over (partition by inventory.store_id order by count(category.name) desc) rank
   from inventory
@@ -58,7 +58,7 @@ with partitioned_film_table as (
   order by store_id, count(category.name)
 )
 
-select store_id, count, category_name from partitioned_film_table
+select store_id, film_count, category_name from partitioned_film_table
 where rank = 1;
 
 -- 6. Rank the top 5 actors per country (determined by the number rentals) sort by most popular to least popular
